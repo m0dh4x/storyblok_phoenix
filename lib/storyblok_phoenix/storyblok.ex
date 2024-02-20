@@ -17,6 +17,8 @@ defmodule StoryblokPhoenix.Storyblok do
     |> get_body()
   end
 
+  defp parse_response({_, _body, _headers}), do: nil
+
   defp get_location(headers) do
     case get_header_items(headers, ~r/\Alocation\z/i) do
       [{_, location}] -> location
